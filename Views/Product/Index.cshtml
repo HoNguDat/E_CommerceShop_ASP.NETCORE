@@ -1,0 +1,174 @@
+﻿@model IEnumerable<ASP.NETCORE_PROJECT.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.product_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_cpu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_feature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_origin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_face)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_sim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_ram)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_storage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_screen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_graphiccard)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_operatingsystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_size_volume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_frontcamera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_backcamera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_battery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_yearofmanufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.typelaptop)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_cpu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_feature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_origin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_face)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_sim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_ram)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_storage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_screen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_graphiccard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_operatingsystem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_size_volume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_frontcamera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_backcamera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_battery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_yearofmanufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category.cate_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brand.brand_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.typelaptop.typeLaptop_name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.product_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.product_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.product_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

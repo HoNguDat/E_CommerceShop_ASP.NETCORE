@@ -1,0 +1,75 @@
+﻿@model ASP.NETCORE_PROJECT.Models.Category
+
+@{
+
+    ViewBag.Title = "Admin | Edit category page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!-- Main -->
+<div class="app-main__inner">
+
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
+                </div>
+                <div>
+                    Category
+                    <div class="page-title-subheading">
+                        View, create, update, delete and manage.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <form asp-action="Edit" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="cate_id" />
+                        <div class="form-group">
+                            <label asp-for="cate_name" class="control-label">Tên nhóm</label>
+                            <input asp-for="cate_name" class="form-control" />
+                            <span asp-validation-for="cate_name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CategoryImage" class="control-label">Ảnh</label>
+                            <div class="custom-file">
+                                <input type="file" asp-for="CategoryImage" class="custom-file-input" id="file"
+                                       onchange="document.getElementById('ImagePrv').src=window.URL.createObjectURL(this.files[0])" />
+
+                                <label class="custom-file-label" for="file">Choose file</label>
+                            </div>
+                            <span asp-validation-for="CategoryImage" class="text-danger"></span>
+                            <img id="ImagePrv" src="~/Admin/assets/images/@Model.cate_image" alt="Image" width="100px" height="100px" style="border:1px solid blue;margin-top:20px;" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Main -->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script type="text/javascript">
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+}
+
+
+
+

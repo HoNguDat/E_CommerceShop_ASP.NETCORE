@@ -1,0 +1,82 @@
+﻿@model ASP.NETCORE_PROJECT.Models.Order
+
+@{
+    ViewBag.Title = "Admin | Edit order page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!-- Main -->
+<div class="app-main__inner">
+
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
+                </div>
+                <div>
+                    Order
+                    <div class="page-title-subheading">
+                        View, create, update, delete and manage.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="order_id" class="control-label">Order Id</label>
+                            <input asp-for="order_id" class="form-control" readonly />
+                            <span asp-validation-for="order_id" class="text-danger"></span>
+                        </div>                       
+                        <div class="form-group">
+                            <label asp-for="order_UserId" class="control-label">User full name order</label>
+                            <input asp-for="order_UserId" class="form-control" readonly />
+                            <span asp-validation-for="order_UserId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="order_totalbill" class="control-label">Total bill</label>
+                            <input asp-for="order_totalbill" class="form-control" />
+                            <span asp-validation-for="order_totalbill" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="order_createat" class="control-label">Create at</label>
+                            <input asp-for="order_createat" class="form-control" readonly />
+                            <span asp-validation-for="order_createat" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="order_status" class="control-label">Status</label>
+                            <select class="form-control" id="status" name="status">
+                                <option value="Đơn hàng đang được xử lí">Đơn hàng đang được xử lí</option>
+                                <option value="Đang giao hàng">Đang giao hàng</option>
+                                <option value="Đã thanh toán">Đã thanh toán</option>
+                                <option value="Giao hàng không thành công">Giao hàng không thành công</option>
+                            </select>
+                            <span asp-validation-for="order_status" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="order_note" class="control-label">Note</label>
+                            <input asp-for="order_note" class="form-control" readonly />
+                            <span asp-validation-for="order_note" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                        </div>                     
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Main -->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }   
+}

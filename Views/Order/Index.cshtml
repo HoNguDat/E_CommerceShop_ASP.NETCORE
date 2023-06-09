@@ -1,0 +1,133 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ASP.NETCORE_PROJECT.Areas.Identity.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject RoleManager<IdentityRole> RoleManager
+@model IEnumerable<ASP.NETCORE_PROJECT.Models.Order>
+@{
+    ViewBag.Title = "Admin | List order page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!-- Main -->
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
+                </div>
+                <div>
+                    Order
+                    <div class="page-title-subheading">
+                        View, create, update, delete and manage.
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+
+                <div class="card-header">
+
+                    <form>
+                        <div class="input-group">
+                            <input type="search" name="search" id="search"
+                                   placeholder="Search everything" class="form-control">
+                            <span class="input-group-append">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-search"></i>&nbsp;
+                                    Search
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+
+                    <div class="btn-actions-pane-right">
+                        <div role="group" class="btn-group-sm btn-group">
+                            <button class="btn btn-focus">This week</button>
+                            <button class="active btn btn-focus">Anytime</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="align-middle mb-0 table table-bordered table-striped table-hover" style="text-align:center">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Order id</th>
+                                <th class="text-center">User id</th>
+                                <th class="text-center">Total bill</th>
+                                <th class="text-center">Create at</th>
+                                <th class="text-center">Note</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="text-center text-muted">@item.order_id</td>
+                                    @{
+                                        var user = ViewBag.Users as List<ApplicationUser>;
+                                        string fullName = "";
+                                    }
+                                    @for(int i =0;i<user.Count;i++)
+                                    {
+                                        if(item.order_UserId==user[i].Id)
+                                        {
+                                            fullName = user[i].FullName;
+                                        }
+                                    }
+                                    <td class="text-center text-muted">@fullName</td>
+                                    <td class="text-center text-muted">@string.Format("{0:#,0}",item.order_totalbill) VNĐ</td>
+                                    <td class="text-center text-muted">@item.order_createat</td>
+                                    <td class="text-center text-muted">@item.order_note</td>
+                                    <td class="text-center text-muted">@item.order_status</td>
+                                    <td class="text-center">
+                                        <a asp-action="Edit" asp-controller="Order" asp-route-id="@item.order_id" title="Edit"
+                                           data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
+                                            <span class="btn-icon-wrapper opacity-8">
+                                                <i class="fa fa-edit fa-w-20"></i>
+                                            </span>
+                                        </a>
+                                        <a asp-action="OrderDetailAdmin" asp-controller="Order" asp-route-id="@item.order_id" title="Detail"
+                                           data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
+                                            <span class="btn-icon-wrapper opacity-8">
+                                                <i class="fa fa-info-circle fa-w-20"></i>
+                                            </span>
+                                        </a>
+                                        <form class="d-inline" asp-action="Delete" asp-controller="Order" asp-route-id="@item.order_id">
+                                            <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
+                                                    type="submit" data-toggle="tooltip" title="Delete"
+                                                    data-placement="bottom"
+                                                    onclick="return confirm('Are you sure to delete it ?')">
+                                                <span class="btn-icon-wrapper opacity-8">
+                                                    <i class="fa fa-trash fa-w-20"></i>
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Main -->

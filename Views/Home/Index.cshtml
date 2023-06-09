@@ -1,0 +1,361 @@
+﻿
+@{   
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<!-- Navbar End -->
+<!-- Big banner-->
+<div style="position:relative;">
+    <img src="~/images/bigbanner.jpg" width="100%" height="500px" style="object-fit: cover;"/>
+    <div class="overlay" style="border-radius:50px;width:1300px;position:absolute;transform: translate(-50%, -50%);top: 100%;left: 50%;color: white; ">
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="header-carousel" class="carousel slide carousel-fade mb-10 mb-lg-0" data-ride="carousel">
+                
+                    <div class="carousel-inner">
+                        <div class="carousel-item position-relative active" style="height: 180px;width: 600px">
+                            <img class="position-absolute w-100 h-100" src="~/User/img/carousel_1.jpg" style="object-fit: cover;border-radius:20px;">
+
+                        </div>
+                        <div class="carousel-item position-relative" style="height: 180px;width: 600px">
+                            <img class="position-absolute w-100 h-100" src="~/User/img/carousel_2.jpg" style="object-fit: cover;border-radius:20px;">
+
+                        </div>
+                        <div class="carousel-item position-relative" style="height: 180px;width: 600px">
+                            <img class="position-absolute w-100 h-100" src="~/User/img/carousel_3.jpg" style="object-fit: coverborder-radius:20px;">
+
+                        </div>
+                        <div class="carousel-item position-relative" style="height: 180px;width: 600px">
+                            <img class="position-absolute w-100 h-100" src="~/User/img/carousel_4.jpg" style="object-fit: cover;border-radius:20px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="header-carousel" class="carousel slide carousel-fade mb-10 mb-lg-0" data-ride="carousel">
+                 
+                    <div class="carousel-inner" style="border-radius:20px">
+                        <div class="carousel-item position-relative active" style="height: 180px;width: 600px">
+                            <img class="position-absolute w-100 h-100" src="~/User/img/carousel_4.jpg" style="object-fit: cover;border-radius:20px;">
+
+                        </div>
+                        <div class="carousel-item position-relative" style="height: 180px;width: 600px">
+                            <img class="position-absolute w-100 h-100" src="~/User/img/carousel_2.jpg" style="object-fit: cover;border-radius:20px;">
+
+                        </div>
+                        <div class="carousel-item position-relative" style="height: 180px;width: 600px">
+                            <img class="position-absolute w-100 h-100" src="~/User/img/carousel_3.jpg" style="object-fit: cover;border-radius:20px;">
+
+                        </div>
+                        <div class="carousel-item position-relative" style="height: 180px;width: 600px">
+                            <img class="position-absolute w-100 h-100" src="~/User/img/carousel_1.jpg" style="object-fit: cover;border-radius:20px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+
+
+<!-- Carousel Start -->
+
+    
+
+<!-- Carousel End -->
+<!-- Featured Start -->
+<div class="container-fluid pt-5" style="margin-top:80px">
+    <div class="row px-xl-5 pb-3 p-30" style="background-color:#F5F5F5">
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+                <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured End -->
+<!-- Categories Start -->
+<div class="container-fluid pt-5">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">DANH MỤC SẢN PHẨM</span></h2>
+    <div class="row px-xl-5 pb-3 p-30" style="background-color:#F5F5F5">
+       @await Component.InvokeAsync("CategoryMain")
+    </div>
+</div>
+<!-- Categories End -->
+<!-- Products Start -->
+<div class="container-fluid pt-5 pb-3">
+    
+    <div class="" style="text-align:center">
+        <img style="width:1650px;height:100px" src="~/images/banner2.jpg" />
+    </div>
+    <div style="background-color:#FBC417;padding: 30px;margin-top:20px;border-radius:40px">
+        <div class="row px-xl-5" >
+            <div>
+                <img style="width:1520px;height:150px; padding:15px" src="~/images/banner3.jpg" />
+            </div>
+
+            @foreach (var item in ViewBag.ProductsPhone as List<Product>)
+            {
+                <div class="col-lg-3 col-md-5 col-sm-6 pb-1">
+                    <div class="product-item bg-light mb-4">
+                        <div class="product-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="~/Admin/assets/images/product/@item.product_image" style="height:350px;object-fit:contain;padding:20px">
+                            <div class="product-action">
+                               
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                <a class="btn btn-outline-dark btn-square" asp-action="Details" asp-controller="Home" asp-route-id="@item.product_id"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-4">
+                            <a class="h6 text-decoration-none text-truncate" asp-action="Details" asp-controller="Home" asp-route-id="@item.product_id">@item.product_name</a>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                <h5>@string.Format("{0:#,0}", item.product_price) VNĐ</h5><h6 class="text-muted ml-2"><del>@string.Format("{0:#,0}", item.product_price)</del></h6>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small>(99)</small>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+                               
+                                <button type="button" class="ajax-add-to-cart btn btn-outline-dark btn-square" data-id="@item.product_id" href=""><i class="fa fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div style="">
+            <a class="text-center" asp-action="ListPhoneProducts" asp-controller="Home" style="text-decoration:none;margin: 5px auto 15px;width:370px;height:55px;display:block;color:#000;font-size:20px;border: 1px solid white;padding:10px;background-color:white">Xem tất cả sản phẩm ></a>
+        </div>
+    </div>
+    
+</div>
+<div class="container-fluid pt-5 pb-3">
+    
+    <div style="background-color:#920101;padding: 30px;margin-top:20px;border-radius:40px">
+        <div class="row px-xl-5">
+            <div>
+                <img style="width:1520px;height:150px; padding:15px" src="~/images/banner4.jpg" />
+            </div>
+            @foreach (var item in ViewBag.ProductsLaptop as List<Product>)
+            {
+                <div class="col-lg-3 col-md-5 col-sm-6 pb-1">
+                    <div class="product-item bg-light mb-4">
+                        <div class="product-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="~/Admin/assets/images/product/@item.product_image" style="height:350px;object-fit:contain">
+                            <div class="product-action">                               
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                <a class="btn btn-outline-dark btn-square" asp-action="Details" asp-controller="Home" asp-route-id="@item.product_id"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-4">
+                            <a class="h6 text-decoration-none text-truncate" asp-action="Details" asp-controller="Home" asp-route-id="@item.product_id">@item.product_name</a>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                <h5>@string.Format("{0:#,0}", item.product_price) VNĐ</h5><h6 class="text-muted ml-2"><del>@string.Format("{0:#,0}", item.product_price)</del></h6>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small>(99)</small>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+
+                                <button type="button" class="ajax-add-to-cart btn btn-outline-dark btn-square" data-id="@item.product_id" href=""><i class="fa fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div style="">
+            <a class="text-center" asp-action="ListLaptopProducts" asp-controller="Home" style="text-decoration:none;margin: 5px auto 15px;width:370px;height:55px;display:block;color:#000;font-size:20px;border: 1px solid white;padding:10px;background-color:white">Xem tất cả sản phẩm ></a>
+        </div>
+    </div>    
+</div>
+<div class="container-fluid pt-5 pb-3">   
+    <div style="background-color:#0b37f4;padding: 30px;margin-top:20px;border-radius:40px">
+        <div>
+            <h1 class="text-center" style="color:#fff;font-size:45px;font-weight:700">TUẦN LỄ SAMSUNG</h1>
+        </div>
+        <div class="row px-xl-5">              
+            
+            @foreach (var item in ViewBag.ListSamsung as List<Product>)
+            {
+                <div class="col-lg-3 col-md-5 col-sm-6 pb-1">
+                    <div class="product-item bg-light mb-4">
+                        <div class="product-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="~/Admin/assets/images/product/@item.product_image" style="height:350px;object-fit:contain;padding:20px">
+                            <div class="product-action">                                
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                <a class="btn btn-outline-dark btn-square" asp-action="Details" asp-controller="Home" asp-route-id="@item.product_id"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-4">
+                            <a class="h6 text-decoration-none text-truncate" asp-action="Details" asp-controller="Home" asp-route-id="@item.product_id">@item.product_name</a>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                <h5>@string.Format("{0:#,0}", item.product_price) VNĐ</h5><h6 class="text-muted ml-2"><del>@string.Format("{0:#,0}", item.product_price)</del></h6>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small>(99)</small>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                <button type="button" class="ajax-add-to-cart btn btn-outline-dark btn-square" data-id="@item.product_id" href=""><i class="fa fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }         
+            
+        </div>
+        <div style="">
+            <a asp-action="ListSamsungProducts" asp-controller="Home" class="text-center" style="text-decoration:none;margin: 5px auto 15px;width:370px;height:55px;display:block;color:#000;font-size:20px;border: 1px solid white;padding:10px;background-color:white">Xem tất cả sản phẩm ></a>
+        </div>          
+        
+    </div>
+
+</div>
+<!-- Products End -->
+<!-- Offer Start -->
+<div class="container-fluid pt-5 pb-3">
+    <div class="row px-xl-5">
+        <div class="col-md-6">
+            <div class="product-offer mb-30" style="height: 300px;">
+                <img class="img-fluid" src="~/User/img/offer-1.jpg" alt="">
+                <div class="offer-text">
+                    <h6 class="text-white text-uppercase">Save 20%</h6>
+                    <h3 class="text-white mb-3">Special Offer</h3>
+                    <a href="" class="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="product-offer mb-30" style="height: 300px;">
+                <img class="img-fluid" src="~/User/img/offer-2.jpg" alt="">
+                <div class="offer-text">
+                    <h6 class="text-white text-uppercase">Save 20%</h6>
+                    <h3 class="text-white mb-3">Special Offer</h3>
+                    <a href="" class="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Offer End -->
+<!-- Vendor Start -->
+<div class="container-fluid py-5">
+    <div class="row px-xl-5">
+        <div class="col">
+            <div class="owl-carousel vendor-carousel">
+                <div class="bg-light p-4" style="width:200px;height:100px">
+                    <img src="~/User/img/logoiphone.png" alt="">
+                </div>
+                <div class="bg-light p-4" style="width:200px;height:100px">
+                    <img src="~/User/img/logooppo.png" alt="">
+                </div>
+                <div class="bg-light p-4" style="width:200px;height:100px">
+                    <img src="~/User/img/logosamsung.png" alt="">
+                </div>
+                <div class="bg-light p-4" style="width:200px;height:100px">
+                    <img src="~/User/img/logorealme.png" alt="">
+                </div>
+                <div class="bg-light p-4" style="width:200px;height:100px">
+                    <img src="~/User/img/logovivo.png" alt="">
+                </div>
+                <div class="bg-light p-4" style="width:200px;height:100px">
+                    <img src="~/User/img/logoxiaomi.png" alt="">
+                </div>
+                <div class="bg-light p-4" style="width:200px;height:100px">
+                    <img src="~/User/img/logo-macbook-149x40.png" alt="">
+                </div>
+                <div class="bg-light p-4" style="width:200px;height:100px">
+                    <img src="~/User/img/logo-hp-149x40-1.png" alt="">
+                </div>
+                <div class="bg-light p-4" style="width:200px;height:100px">
+                    <img src="~/User/img/logo-asus-149x40.png" alt="">
+                </div>
+                <div class="bg-light p-4" style="width:200px;height:100px">
+                    <img src="~/User/img/logo-lenovo-149x40.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Vendor End -->
+<!-- Footer Start -->
+@section Scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".ajax-add-to-cart").click(function () {
+                var quantity = $("#ipQuantity").val();
+                $.ajax({
+                    url: "/Cart/AddToCart",
+                    data: {
+                        id: $(this).data("id"),
+                        Quantity: 1,
+                        type: "ajax"
+                    },
+                    success: function (data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Thêm giỏ hàng thành công',
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+                        $("#cart_count").html(data.quantity);
+                    },
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Thêm giỏ hàng thất bại',
+                            text: 'Vui lòng thử lại',
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+                    }
+                });
+            });
+        });        
+    </script>
+}

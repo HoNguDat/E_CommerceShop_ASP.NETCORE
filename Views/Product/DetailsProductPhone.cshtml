@@ -1,0 +1,208 @@
+﻿@model ASP.NETCORE_PROJECT.Models.Product
+
+@{
+    ViewBag.Title = "Admin | Detail phone product page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!-- Main -->
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
+                </div>
+                <div>
+                    Product
+                    <div class="page-title-subheading">
+                        View, create, update, delete and manage.
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-title-actions">
+                <a class="btn-shadow btn-hover-shine mr-3 btn btn-primary" asp-area="" asp-controller="Product" asp-action="CreateProductPhone">
+                    <span class="btn-icon-wrapper pr-2 opacity-7">
+                        <i class="fa fa-plus fa-w-20"></i>
+                    </span>
+                    Create
+                </a>
+            </div>
+        </div>
+    </div>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+
+                <div class="card-header">
+
+                    <form>
+                        <div class="input-group">
+                            <input type="search" name="search" id="search"
+                                   placeholder="Search everything" class="form-control">
+                            <span class="input-group-append">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-search"></i>&nbsp;
+                                    Search
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+
+                    <div class="btn-actions-pane-right">
+                        <div role="group" class="btn-group-sm btn-group">
+                            <button class="btn btn-focus">This week</button>
+                            <button class="active btn btn-focus">Anytime</button>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align:center;font-size:18px">
+                    <h4>@Html.DisplayFor(model => model.product_name)</h4>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            Image
+                        </dt>
+                        <dd class="col-sm-10">
+                            <img src="~/Admin/assets/images/product/@Model.product_image" width="100px" height="100px" />
+                        </dd>
+                       
+                        <dt class="col-sm-2">
+                            Category
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.category.cate_name)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Brand
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.brand.brand_name)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Cpu
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_cpu)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Feature
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_feature)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Origin
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_origin)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Sim
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_sim)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Ram
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_ram)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Storage
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_storage)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Screen
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_screen)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Operating system
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_operatingsystem)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Size, volume
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_size_volume)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Front camera
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_frontcamera)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Back camera
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_backcamera)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Battery
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_battery)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Description
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_description)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Quantity
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_quantity)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Year of manufacturer
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_yearofmanufacturer)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Price
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_price)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Color
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.product_color)
+                        </dd>
+
+
+
+                    </dl>
+                </div>
+                <div>
+                    <a asp-action="Edit" asp-route-id="@Model?.product_id">Edit</a> |
+                    <a asp-action="Index">Back to List</a>
+                </div>
+               
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Main -->

@@ -1,0 +1,175 @@
+﻿@model ASP.NETCORE_PROJECT.Models.Product
+
+@{
+    ViewBag.Title = "Admin | Edit phone product page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!-- Main -->
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
+                </div>
+                <div>
+                    Product phone
+                    <div class="page-title-subheading">
+                        View, create, update, delete and manage.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <form asp-action="EditPhoneProducts" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="product_id" />
+                        <div class="form-group">
+                            <label asp-for="product_name" class="control-label">Name</label>
+                            <input asp-for="product_name" class="form-control" />
+                            <span asp-validation-for="product_name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_cpu" class="control-label">Cpu</label>
+                            <input asp-for="product_cpu" class="form-control" />
+                            <span asp-validation-for="product_cpu" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_screen" class="control-label">Screen</label>
+                            <input asp-for="product_screen" class="form-control" />
+                            <span asp-validation-for="product_screen" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_frontcamera" class="control-label">Front camera</label>
+                            <input asp-for="product_frontcamera" class="form-control" />
+                            <span asp-validation-for="product_frontcamera" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_backcamera" class="control-label">Back camera</label>
+                            <input asp-for="product_backcamera" class="form-control" />
+                            <span asp-validation-for="product_backcamera" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="product_sim" class="control-label">Sim</label>
+                            <input asp-for="product_sim" class="form-control" />
+                            <span asp-validation-for="product_sim" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_ram" class="control-label">Ram</label>
+                            <input asp-for="product_ram" class="form-control" />
+                            <span asp-validation-for="product_ram" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_storage" class="control-label">Storage</label>
+                            <input asp-for="product_storage" class="form-control" />
+                            <span asp-validation-for="product_storage" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_operatingsystem" class="control-label">Operating system</label>
+                            <input asp-for="product_operatingsystem" class="form-control" />
+                            <span asp-validation-for="product_operatingsystem" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_feature" class="control-label">Feature</label>
+                            <input asp-for="product_feature" class="form-control" />
+                            <span asp-validation-for="product_feature" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_origin" class="control-label">Origin</label>
+                            <input asp-for="product_origin" class="form-control" />
+                            <span asp-validation-for="product_origin" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_size_volume" class="control-label">Size, volume</label>
+                            <input asp-for="product_size_volume" class="form-control" />
+                            <span asp-validation-for="product_size_volume" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_battery" class="control-label">Battery</label>
+                            <input asp-for="product_battery" class="form-control" />
+                            <span asp-validation-for="product_battery" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_quantity" class="control-label">Quantity</label>
+                            <input asp-for="product_quantity" class="form-control" />
+                            <span asp-validation-for="product_quantity" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_yearofmanufacturer" class="control-label">Year of manufacture</label>
+                            <input asp-for="product_yearofmanufacturer" class="form-control" />
+                            <span asp-validation-for="product_yearofmanufacturer" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_price" class="control-label">Price</label>
+                            <input asp-for="product_price" class="form-control" />
+                            <span asp-validation-for="product_price" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_color" class="control-label">Color</label>
+                            <input asp-for="product_color" class="form-control" />
+                            <span asp-validation-for="product_color" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_description" class="control-label">Description</label>
+                            <input asp-for="product_description" class="form-control" />
+                            <span asp-validation-for="product_description" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ProductImage" class="control-label">Image</label>
+                            <div class="custom-file">
+                                <input type="file" asp-for="ProductImage" class="custom-file-input" id="file"
+                                       onchange="document.getElementById('ImagePrv').src=window.URL.createObjectURL(this.files[0])" />
+
+                                <label class="custom-file-label" for="file">Choose file</label>
+                            </div>
+                            <span asp-validation-for="ProductImage" class="text-danger"></span>
+                            <img id="ImagePrv" src="~/Admin/assets/images/product/@Model.product_image" alt="Image" width="100px" height="100px" style="border:1px solid blue;margin-top:20px;" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_cateid" class="control-label">Category</label>
+                            <select asp-for="product_cateid" class="form-control" asp-items="ViewBag.product_cateid"></select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="product_brandid" class="control-label">Brand</label>
+                            <select asp-for="product_brandid" class="form-control" asp-items="ViewBag.product_brandid"></select>
+                        </div>
+                        <div class="position-relative row form-group mb-1">
+                            <div class="col-md-9 col-xl-8 offset-md-5">
+                                <a href="#" class="border-0 btn btn-outline-danger mr-1">
+                                    <span class="btn-icon-wrapper pr-1 opacity-8">
+                                        <i class="fa fa-times fa-w-20"></i>
+                                    </span>
+                                    <span>Cancel</span>
+                                </a>
+
+                                <button type="submit"
+                                        class="btn-shadow btn-hover-shine btn btn-primary">
+                                    <span class="btn-icon-wrapper pr-2 opacity-8">
+                                        <i class="fa fa-download fa-w-20"></i>
+                                    </span>
+                                    <span>Save</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+}
